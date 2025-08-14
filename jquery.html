@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>J Query</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      #hoverBox {
+        width: 200px;
+        height: 100px;
+        background-color: lightgray;
+        border: 2px solid #333;
+        text-align: center;
+        line-height: 100px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Change background colour of paragraph -->
+    <h2>Change background colour of paragraph</h2>
+    <div id="paragraph">
+      <p>The first paragraph</p>
+      <p id="para2">The second paragraph</p>
+      <p class="para">The Third paragraph</p>
+    </div>
+
+    <!-- hide or show paragraph -->
+    <h2>Hide and Show Paragraph</h2>
+    <p class="parahide">
+      There are many variations of passages of Lorem Ipsum available, but the
+      majority have suffered alteration in some form, by injected humour, or
+      randomised words which don't look even slightly believable. If you are
+      going to use a passage of Lorem Ipsum, you need to be sure there isn't
+      anything embarrassing hidden in the middle of text.
+    </p>
+    <button id="btnhide">Hide</button>
+    <button id="btnshow">Show</button>
+
+    <!-- Change Text on Button Click -->
+    <h2 id="headtext">Change Text on Button Click</h2>
+    <button id="changebtn">Change text</button>
+
+    <!-- Change CSS with jQuery -->
+    <p id="paracss">
+      There are many variations of passages of Lorem Ipsum available, but the
+      majority have suffered alteration in some form, by injected humour, or
+      randomised words which don't look even slightly believable. If you are
+      going to use a passage of Lorem Ipsum,
+    </p>
+    <button id="btncss">change css property</button><br />
+
+    <!-- Toggle Visibility -->
+    <h2>Toggle Visibility</h2>
+    <div id="myDiv">Hello! This is some text inside the div.</div>
+    <br />
+    <button id="toggleBtn">Toggle Text</button>
+
+    <!-- Fade In and Fade Out -->
+    <h2>Fade In and Fade Out</h2>
+    <br /><br />
+    <img id="myImage" src="flower1.png" alt="Sample Image" />
+    <br /><br />
+    <button id="fadeOutBtn">Fade Out</button>
+    <button id="fadeInBtn">Fade In</button>
+    <br /><br />
+
+    <!-- Get Input Value -->
+    <h2>Get Input Value</h2>
+    <input type="text" id="myInput" placeholder="Type something here" />
+    <button id="showBtn">Show Value</button>
+
+    <!-- Append Text to a Div -->
+    <h2>Append Text to a Div</h2>
+    <div class="appendText"></div>
+    <button class="appendbtn">Append Text</button>
+
+    <!-- Slide Toggle a Panel -->
+    <h2>Slide Toggle a Panel</h2>
+    <div id="panel">
+      This is a collapsible panel with some content inside. You can slide it
+      open or closed.
+    </div>
+    <br />
+    <button id="togglePanelBtn">Toggle Panel</button>
+
+    <br />
+    <!-- Add and Remove a Class -->
+    <p id="myPara">This is a sample paragraph.</p>
+    <button id="addRedBtn">Add Red</button>
+    <button id="removeRedBtn">Remove Red</button>
+    <br><br>
+    <!-- Mouse Events -->
+    <h2>Mouse Events</h2>
+    <div id="hoverBox">Hover over me!</div>
+
+    <script>
+      // Change background colour of paragraph
+      $(document).ready(function () {
+        $("#paragraph").css("background-color", "red");
+      });
+      //hide or show paragraph
+      $(document).ready(function () {
+        $("#btnhide").click(function () {
+          $(".parahide").hide();
+        });
+        $("#btnshow").click(function () {
+          $(".parahide").show();
+        });
+      });
+
+      //Change Text on Button Click
+      $(document).ready(function () {
+        $("#changebtn").click(function () {
+          $("#headtext").text("Hello, jQuery!");
+        });
+      });
+
+      //Change CSS with jQuery
+      $(document).ready(function () {
+        $("#btncss").click(function () {
+          $("#paracss").css({
+            color: "blue",
+            "font-size": "20px",
+          });
+        });
+      });
+
+      // Toggle Visibility
+      $("#toggleBtn").click(function () {
+        $("#myDiv").toggle();
+      });
+
+      // Fade In and Fade Out
+      $("#fadeOutBtn").click(function () {
+        $("#myImage").fadeOut();
+      });
+
+      $("#fadeInBtn").click(function () {
+        $("#myImage").fadeIn();
+      });
+
+      //Get Input Value
+      $("#showBtn").click(function () {
+        const inputValue = $("#myInput").val();
+        alert("You typed: " + inputValue);
+      });
+
+      // Append Text to a Div
+      $(".appendbtn").click(function () {
+        $(".appendText").append("<p>This is the appended text.</p>");
+      });
+
+      //Slide Toggle a Panel
+      $("#togglePanelBtn").click(function () {
+        $("#panel").slideToggle();
+      });
+
+      //Add and Remove a Class
+      $("#addRedBtn").click(function () {
+        $("#myPara").css({
+          color: "red",
+        });
+      });
+
+      $("#removeRedBtn").click(function () {
+        $("#myPara").css({
+          color: "black",
+        });
+      });
+
+      // Mouse Events
+      $("#hoverBox").hover(
+        function () {
+          $(this).css("background-color", "green");
+        },
+        function () {
+          $(this).css("background-color", "lightgray");
+        }
+      );
+    </script>
+  </body>
+</html>
